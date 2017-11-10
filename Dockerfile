@@ -1,5 +1,8 @@
 FROM amazonlinux
 
+ARG DEFAULT_TOOLCHAIN=stable
+ARG NIGHTLY_TOOLCHAIN=nightly
+
 ENV PATH=/usr/local/cargo/bin:$PATH \
     CARGO_HOME=/usr/local/cargo \
     RUSTUP_HOME=/usr/local/rustup
@@ -7,11 +10,12 @@ ENV PATH=/usr/local/cargo/bin:$PATH \
 RUN yum update -y \
     && yum install -y gcc g++ git make openssl-devel \
     && curl https://sh.rustup.rs -sSf | sh -s -- \
-        --default-toolchain nightly \
+        --default-toolchain $DEFAULT_TOOLCHAIN \
         --no-modify-path \
         -y \
+    && rustup install $NIGHTLY_TOOLCHAIN \
     && cargo install cargo-make \
     && cargo install cargo-watch \
-    && cargo install clippy \
-    && cargo install rustfmt-nightly \
+    && cargo +$NIGHTLY_TOOLCHAIN install clippy \
+    && cargo +$NIGHTLY_TOOLCHAIN install rustfmt-nightly \
     && yum clean all
