@@ -9,10 +9,3 @@ RUN yum update -y \
     && cargo install cargo-watch \
     && cargo install rustfmt-nightly \
     && yum clean all
-
-COPY . /usr/src/api-keys
-WORKDIR /usr/src/api-keys
-
-VOLUME ["/usr/src/api-keys"]
-
-ENTRYPOINT ["scripts/entry.sh"]
