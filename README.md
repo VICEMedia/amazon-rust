@@ -2,7 +2,7 @@
 
 [![Docker Stars](https://img.shields.io/docker/pulls/vice/amazon-rust.svg?style=flat-square)](https://github.com/VICEMedia/amazon-rust)
 
-A thin [Rust](https://rust-lang.org/) layer on top of the official [Amazon Linux](https://hub.docker.com/_/amazonlinux/) docker image. Suitable for both local development and continuous deployment/integration workflows. Perfect for pre-building building binaries that target various [AWS](https://aws.amazon.com) services.
+A thin [Rust](https://www.rust-lang.org/) layer on top of the official [Amazon Linux](https://hub.docker.com/_/amazonlinux/) docker image. Suitable for both local development and continuous deployment/integration workflows. Perfect for pre-building building binaries that target various [AWS](https://aws.amazon.com) services.
 
 ## Usage
 
