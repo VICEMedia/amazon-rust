@@ -13,6 +13,7 @@ RUN yum update -y \
         --default-toolchain $DEFAULT_TOOLCHAIN \
         --no-modify-path \
         -y \
+    && chmod -R a+w $RUSTUP_HOME $CARGO_HOME \
     && rustup install $NIGHTLY_TOOLCHAIN \
     && cargo install cargo-make \
     && cargo install cargo-watch \
