@@ -10,6 +10,7 @@ RUN yum update -y \
         --default-toolchain nightly \
         --no-modify-path \
         -y \
+    && chmod -R a+w $RUSTUP_HOME $CARGO_HOME \
     && cargo install cargo-make \
     && cargo install cargo-watch \
     && cargo install clippy \
