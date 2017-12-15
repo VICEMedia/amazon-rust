@@ -22,6 +22,7 @@ RUN yum update -y \
     && yum clean all
 
 # Install python and awscli
-RUN yum install python \
+RUN yum install -y python \
     && curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py \
-    && pip install -q awscli --upgrade
+    && pip install -q awscli --upgrade \
+    && aws --version
