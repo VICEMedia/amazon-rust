@@ -20,3 +20,8 @@ RUN yum update -y \
     && cargo +$NIGHTLY_TOOLCHAIN install clippy \
     && cargo +$NIGHTLY_TOOLCHAIN install rustfmt-nightly \
     && yum clean all
+
+# Install python and awscli
+RUN yum install python \
+    && curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py \
+    && pip install -q awscli --upgrade
